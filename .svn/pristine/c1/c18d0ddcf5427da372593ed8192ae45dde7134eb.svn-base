@@ -1,0 +1,24 @@
+#!/bin/ksh -p
+
+function initialize
+{
+	return 0
+}
+
+function execute
+{
+	. ${LIB}/toolsEnv.sh
+	arrange "A" $*
+
+	print "Using A value " $A
+        return 0
+}
+
+function finish
+{
+	if [[ "$TESTCASE" == "CREATE_CASES_001" ]]; then
+		return 0
+	else
+        	return 1
+	fi
+}
